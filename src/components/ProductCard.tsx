@@ -21,9 +21,6 @@ export default function ProductCard({ product }: Props) {
             (e.target as HTMLImageElement).src = 'https://placehold.co/400x300/13131f/7c3aed?text=Bosstify'
           }}
         />
-        <span className={`product-card-badge ${product.stock_status ? 'badge-instock' : 'badge-outstock'}`}>
-          {product.stock_status ? 'In Stock' : 'Sold'}
-        </span>
       </div>
 
       <div className="product-card-body">
@@ -33,8 +30,12 @@ export default function ProductCard({ product }: Props) {
           <p className="product-card-price" style={{ margin: 0 }}>
             ₹{product.price.toLocaleString('en-IN')}
           </p>
+          <span className={`product-card-badge ${product.stock_status ? 'badge-instock' : 'badge-outstock'}`} style={{ position: 'static', margin: 0 }}>
+            {product.stock_status ? 'In Stock' : 'Sold'}
+          </span>
         </div>
       </div>
     </div>
   )
 }
+
